@@ -149,7 +149,7 @@ Connecting to www.example.com (93.184.216.34:80)
 wget: download timed out
 ```
 
-## Try another container without label, same as before policy
+## Try another container without label
 ```
 $kubectl run --rm --restart=Never --image=alpine -i -t  test -- ash
 wget --timeout 1 -O- http://www.example.com
@@ -228,7 +228,8 @@ EOF
 ```
 
 ## Only allow fronted to go to backend
-## if we did not have allow dns above we would need to add it
+If we did not have allow dns above we would need to add it now. 
+
 ```
 cat > front-to-back-egress.yaml <<EOF
 apiVersion: networking.k8s.io/v1
